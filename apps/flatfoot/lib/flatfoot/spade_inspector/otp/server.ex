@@ -37,9 +37,9 @@ defmodule Flatfoot.SpadeInspector.Server do
     if :ets.info(:modifier_leading) == :undefined, do: :ets.new(:modifier_leading, [:set, :private, :named_table])
     if :ets.info(:modifier_trailing) == :undefined, do: :ets.new(:modifier_trailing, [:set, :private, :named_table])
 
-    load_scoresheet("lib/flatfoot/data/negative_words.csv", :negative_words)
-    load_scoresheet("lib/flatfoot/data/modifier_leading.csv", :modifier_leading)
-    load_scoresheet("lib/flatfoot/data/modifier_trailing.csv", :modifier_trailing)
+    load_scoresheet("apps/flatfoot/lib/flatfoot/data/negative_words.csv", :negative_words)
+    load_scoresheet("apps/flatfoot/lib/flatfoot/data/modifier_leading.csv", :modifier_leading)
+    load_scoresheet("apps/flatfoot/lib/flatfoot/data/modifier_trailing.csv", :modifier_trailing)
 
     state = %InspectorState{sup: sup}
     {:ok, state}
