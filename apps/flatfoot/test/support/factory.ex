@@ -12,6 +12,14 @@ defmodule Flatfoot.Factory do
     }
   end
 
+  def spade_user_factory do
+    %Flatfoot.Spade.User{
+      username: Faker.Internet.user_name,
+      email: Faker.Internet.free_email,
+      global_threshold: Enum.random(0..100)
+    }
+  end
+
   def session_factory do
     %Flatfoot.Clients.Session{
       token: SecureRandom.urlsafe_base64(),
@@ -45,6 +53,16 @@ defmodule Flatfoot.Factory do
     %Flatfoot.Archer.Backend{
       name: name,
       name_snake: name |> String.downcase |> String.replace(" ", "_"),
+      url: Faker.Internet.url,
+      module: "Flatfoot.Archer.#{name |> String.split(" ") |> Enum.map(&String.capitalize/1) |> List.to_string}"
+    }
+  end
+
+  def spade_backend_factory do
+    name = Faker.Name.name
+
+    %Flatfoot.Spade.Backend{
+      name: name,
       url: Faker.Internet.url,
       module: "Flatfoot.Archer.#{name |> String.split(" ") |> Enum.map(&String.capitalize/1) |> List.to_string}"
     }
