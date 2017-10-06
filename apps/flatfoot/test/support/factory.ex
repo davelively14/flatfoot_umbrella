@@ -118,7 +118,7 @@ defmodule Flatfoot.Factory do
       msg_id: Enum.random(1000..1999) |> to_string,
       msg_text: Faker.Lorem.Shakespeare.hamlet,
       ward_account: build(:ward_account),
-      backend: build(:backend),
+      backend: build(:spade_backend),
       timestamp: random_ecto_datetime()
     }
   end
