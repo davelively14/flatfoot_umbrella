@@ -73,7 +73,7 @@ defmodule Flatfoot.Factory do
       name: Faker.Name.name,
       relationship: Faker.Team.creature,
       active: [true, false] |> Enum.random,
-      user: build(:user)
+      user: build(:spade_user)
     }
   end
 
@@ -81,7 +81,7 @@ defmodule Flatfoot.Factory do
     %Flatfoot.Spade.WardAccount{
       handle: Faker.Internet.user_name,
       ward: build(:ward),
-      backend: build(:backend)
+      backend: build(:spade_backend)
     }
   end
 
