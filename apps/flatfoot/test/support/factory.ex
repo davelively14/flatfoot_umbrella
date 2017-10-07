@@ -106,7 +106,7 @@ defmodule Flatfoot.Factory do
     %Flatfoot.Spade.SuspectAccount{
       handle: Faker.Internet.user_name,
       suspect: build(:suspect),
-      backend: build(:backend)
+      backend: build(:spade_backend)
     }
   end
 
