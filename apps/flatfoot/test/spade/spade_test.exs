@@ -86,8 +86,8 @@ defmodule Flatfoot.SpadeTest do
 
   describe "get_user_preload/1" do
     test "with valid id returns a user" do
-      user = insert(:user)
-      backend = insert(:backend)
+      user = insert(:spade_user)
+      backend = insert(:spade_backend)
 
       watchlist = insert(:watchlist, user: user)
       suspect = insert(:suspect, watchlist: watchlist)
@@ -181,7 +181,7 @@ defmodule Flatfoot.SpadeTest do
 
   describe "list_wards_preload/1" do
     test "with valid user_id, returns all associated wards and preloaded associations" do
-      user = insert(:user)
+      user = insert(:spade_user)
       ward = insert(:ward, user: user)
       ward_account = insert(:ward_account, ward: ward)
 
@@ -516,7 +516,7 @@ defmodule Flatfoot.SpadeTest do
 
   describe "list_watchlists/1" do
     test "with valid user_id, returns list of watchlists" do
-      user = insert(:user)
+      user = insert(:spade_user)
       watchlist = insert(:watchlist, user: user)
       insert_list(3, :watchlist)
 
@@ -934,7 +934,7 @@ defmodule Flatfoot.SpadeTest do
     test "with valid token and as_of date, returns correct results" do
       user = insert(:user)
       session = insert(:session, user: user)
-      ward = insert(:ward, user: user)
+      ward = insert(:ward, user: Spade.get_user!(user.id))
       ward_account = insert(:ward_account, ward: ward)
       ward_result = insert(:ward_result, ward_account: ward_account)
 
