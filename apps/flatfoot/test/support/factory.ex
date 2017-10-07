@@ -88,7 +88,7 @@ defmodule Flatfoot.Factory do
   def watchlist_factory do
     %Flatfoot.Spade.Watchlist{
       name: Faker.Name.name,
-      user: build(:user)
+      user: build(:spade_user)
     }
   end
 
