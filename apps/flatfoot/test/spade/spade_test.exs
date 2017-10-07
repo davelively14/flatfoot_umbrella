@@ -946,7 +946,7 @@ defmodule Flatfoot.SpadeTest do
     test "with valid token and invalid as_of date, returns an error" do
       user = insert(:user)
       session = insert(:session, user: user)
-      ward = insert(:ward, user: user)
+      ward = insert(:ward, user: Spade.get_user!(user.id))
       ward_account = insert(:ward_account, ward: ward)
       insert(:ward_result, ward_account: ward_account)
 
