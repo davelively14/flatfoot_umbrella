@@ -6,10 +6,10 @@ defmodule Archer.Application do
   use Application
 
   def start(_type, _args) do
-    # List all child processes to be supervised
+    import Supervisor.Spec
+
     children = [
-      # Starts a worker by calling: Archer.Worker.start_link(arg)
-      # {Archer.Worker, arg},
+      supervisor(Archer.Supervisor, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
